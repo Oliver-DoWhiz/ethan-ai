@@ -3,8 +3,7 @@
     document.body.classList.add("is-ready");
   });
 
-  const page = document.body.dataset.page;
-  if (page !== "studio") {
+  if (document.body.dataset.page !== "studio") {
     return;
   }
 
@@ -56,7 +55,7 @@
     baths: 3.5,
     sqft: 3180,
     agent_name: "Olivia Chen",
-    buyer_profile: "design-conscious family relocating from SF",
+    buyer_profile: "design-conscious family relocating from San Francisco",
     hero_feature: "double-height living room",
     cta: "Book a private showing with Olivia Chen",
     brand_voice: "luxury",
@@ -86,27 +85,29 @@
       const response = await fetch("/api/templates");
       const templates = await response.json();
       templateStrip.innerHTML = "";
+
       templates.forEach((template) => {
         const card = createElement("article", "template-shell");
-        const label = createElement(
-          "span",
-          "template-shell-tag",
-          `${template.aspect_ratio} / ${template.duration_label}`
+        card.append(
+          createElement(
+            "span",
+            "template-shell-tag",
+            `${template.aspect_ratio} / ${template.duration_label}`
+          ),
+          createElement("h3", "", template.name),
+          createElement("p", "", template.promise)
         );
-        const title = createElement("h3", "", template.name);
-        const promise = createElement("p", "", template.promise);
-        card.append(label, title, promise);
         templateStrip.appendChild(card);
       });
     } catch (error) {
       templateStrip.innerHTML = "";
-      const fallback = createElement("article", "template-shell");
-      fallback.append(
+      const card = createElement("article", "template-shell");
+      card.append(
         createElement("span", "template-shell-tag", "Catalog unavailable"),
         createElement("h3", "", "Template catalog unavailable"),
-        createElement("p", "", "The app can still generate a campaign packet once the API responds.")
+        createElement("p", "", "The planning API can still run once the backend responds.")
       );
-      templateStrip.appendChild(fallback);
+      templateStrip.appendChild(card);
     }
   }
 
@@ -131,7 +132,7 @@
     });
 
     syncDraftPanels();
-    message.textContent = "Sample listing loaded. Review the brief or run the packet.";
+    message.textContent = "Sample listing loaded. Review the brief or generate the run.";
   }
 
   async function handleSubmit(event) {
@@ -195,28 +196,30 @@
 
   function syncDraftPanels() {
     const draft = collectPayload();
-    const roomCount = draft.room_sequence.length || 0;
+    const roomCount = draft.room_sequence.length;
     const listingLabel = draft.listing_title || "Untitled listing";
     const locationLabel = [draft.city, draft.neighborhood].filter(Boolean).join(" / ") || "Location pending";
 
     promptPreview.textContent = [
       `Create a ${hookStyleLabel(draft.hook_style)} flagship walkthrough for ${listingLabel}.`,
-      draft.hero_feature ? `Lead with ${draft.hero_feature}.` : "Pick a strong opening feature.",
-      draft.buyer_profile ? `Keep the buyer fit pointed at ${draft.buyer_profile}.` : "Set the buyer profile.",
-      draft.cta ? `End with: ${draft.cta}.` : "Add a clear CTA.",
+      draft.hero_feature ? `Lead with ${draft.hero_feature}.` : "Choose a strong opening feature.",
+      draft.buyer_profile ? `Aim the story at ${draft.buyer_profile}.` : "Set the buyer profile.",
+      draft.cta ? `Close with: ${draft.cta}.` : "Add a clear CTA.",
     ].join(" ");
 
     summary.listingTitle.textContent = listingLabel;
     summary.listingMeta.textContent = `${locationLabel} / ${draft.beds || "-"} bed / ${formatBaths(draft.baths)} bath / ${draft.sqft || "-"} sq ft / ${formatPrice(draft.price_millions)}`;
-    summary.coverageTitle.textContent = `${roomCount || 0} anchor scenes`;
+    summary.coverageTitle.textContent = `${roomCount} anchor scenes`;
     summary.coverageMeta.textContent = `${draft.assets.footage_clips || 0} clips / ${draft.assets.listing_photos || 0} photos / ${flagSummary(draft)}`;
     summary.deliveryTitle.textContent = "3 outputs + publish pack";
-    summary.deliveryMeta.textContent = `${brandVoiceLabel(draft.brand_voice)} / ${hookStyleLabel(draft.hook_style)} / agent ${draft.agent_name || "pending"}`;
+    summary.deliveryMeta.textContent = `${brandVoiceLabel(draft.brand_voice)} / ${hookStyleLabel(draft.hook_style)} / reviewer ${draft.agent_name || "pending"}`;
 
     renderSimpleList(inspectorFacts, [
       `${listingLabel} in ${locationLabel}`,
       `${draft.beds || 0} bed / ${formatBaths(draft.baths)} bath / ${draft.sqft || 0} sq ft / ${formatPrice(draft.price_millions)}`,
-      roomCount > 0 ? `${roomCount} narrative scenes selected: ${draft.room_sequence.map(titleCase).join(", ")}` : "No narrative scenes selected yet",
+      roomCount > 0
+        ? `${roomCount} narrative scenes selected: ${draft.room_sequence.map(titleCase).join(", ")}`
+        : "No narrative scenes selected yet",
       draft.hero_feature ? `Hero feature: ${draft.hero_feature}` : "Hero feature not set",
       draft.buyer_profile ? `Buyer fit: ${draft.buyer_profile}` : "Buyer profile not set",
     ]);
@@ -246,7 +249,6 @@
 
     renderTokenList(output.paletteTokens, data.creative_direction.palette);
     renderSimpleList(output.motionNotes, data.creative_direction.motion_notes);
-
     renderRunSnapshot(payload, data);
     renderWorkflow(data.workflow);
     renderTemplateOutputs(data.templates);
@@ -254,7 +256,6 @@
     renderSimpleList(output.thumbnailOptions, data.publish_pack.thumbnail_options);
     renderSimpleList(output.chapterSuggestions, data.publish_pack.chapter_suggestions);
     renderExportTargets(data.publish_pack.export_targets);
-
     output.descriptionText.textContent = data.publish_pack.description;
     output.subtitlePack.textContent = `${data.publish_pack.subtitle_pack.primary_language} / ${data.publish_pack.subtitle_pack.secondary_language} / ${data.publish_pack.subtitle_pack.styling}`;
     renderSimpleList(output.reviewNotes, data.review_notes);
@@ -288,14 +289,14 @@
   function renderWorkflow(items) {
     output.workflowList.innerHTML = "";
     items.forEach((step, index) => {
-      const item = createElement("article", "workflow-item");
+      const card = createElement("article", "workflow-item");
       const head = createElement("div", "workflow-item-head");
       head.append(
         createElement("span", "workflow-number", String(index + 1).padStart(2, "0")),
         createElement("h3", "", step.title)
       );
-      item.append(head, createElement("p", "", step.detail));
-      output.workflowList.appendChild(item);
+      card.append(head, createElement("p", "", step.detail));
+      output.workflowList.appendChild(card);
     });
   }
 
@@ -303,7 +304,6 @@
     output.templateOutputs.innerHTML = "";
     templates.forEach((template) => {
       const article = createElement("article", "template-output");
-
       const head = createElement("div", "template-output-head");
       const titleWrap = createElement("div");
       titleWrap.append(
@@ -407,18 +407,12 @@
 
   function formatBaths(value) {
     const number = Number(value || 0);
-    if (Number.isInteger(number)) {
-      return String(number);
-    }
-    return number.toFixed(1);
+    return Number.isInteger(number) ? String(number) : number.toFixed(1);
   }
 
   function formatPrice(value) {
     const number = Number(value || 0);
-    if (number <= 0) {
-      return "price pending";
-    }
-    return `$${number.toFixed(1)}M`;
+    return number > 0 ? `$${number.toFixed(1)}M` : "price pending";
   }
 
   function titleCase(text) {

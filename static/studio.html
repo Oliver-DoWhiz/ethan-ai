@@ -6,21 +6,18 @@
     <title>Ethan AI Studio</title>
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%238f2f3f'/%3E%3Ctext x='32' y='41' font-size='30' text-anchor='middle' fill='white' font-family='Georgia, serif'%3EE%3C/text%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2364172a'/%3E%3Ctext x='32' y='41' font-size='30' text-anchor='middle' fill='white' font-family='Arial, sans-serif'%3EE%3C/text%3E%3C/svg%3E"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Spline+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/static/app.css" />
     <script defer src="/static/app.js"></script>
   </head>
   <body data-page="studio">
-    <div class="page-glow page-glow-a"></div>
-    <div class="page-glow page-glow-b"></div>
-
     <header class="site-header shell reveal">
       <a class="brand" href="/">
         <span class="brand-mark">E</span>
@@ -29,27 +26,29 @@
           <small>studio</small>
         </span>
       </a>
+
       <nav class="site-nav">
         <a href="#section-overview">Overview</a>
         <a href="#section-outputs">Outputs</a>
         <a href="#section-review">Review</a>
       </nav>
+
       <div class="site-actions">
         <button type="button" class="button button-secondary button-reset" id="sampleButton">
           Load Sample
         </button>
-        <a class="button button-ghost" href="/">Landing</a>
+        <a class="button button-primary" href="/">Landing</a>
       </div>
     </header>
 
-    <main class="studio-layout shell">
+    <main class="studio-shell shell">
       <aside class="studio-sidebar reveal">
         <div class="sidebar-intro">
-          <p class="eyebrow">Input brief</p>
-          <h1>Direct Ethan with one crisp listing brief.</h1>
+          <p class="eyebrow">Project brief</p>
+          <h1>Tell Ethan what the home needs.</h1>
           <p>
-            The form is grouped by what the operator needs to know: property
-            facts, creative intent, room sequence, and asset coverage.
+            The form is grouped by property facts, creative intent, and asset
+            coverage so the operator path stays obvious.
           </p>
         </div>
 
@@ -58,21 +57,21 @@
             <span>01</span>
             <div>
               <strong>Property</strong>
-              <p>Facts and local context</p>
+              <p>Title, location, pricing, and scale.</p>
             </div>
           </article>
           <article class="step-card">
             <span>02</span>
             <div>
               <strong>Direction</strong>
-              <p>Hero feature and buyer fit</p>
+              <p>Buyer fit, hero feature, and CTA.</p>
             </div>
           </article>
           <article class="step-card">
             <span>03</span>
             <div>
               <strong>Coverage</strong>
-              <p>Rooms and available assets</p>
+              <p>Rooms, footage count, and support assets.</p>
             </div>
           </article>
         </div>
@@ -83,6 +82,7 @@
               <p class="eyebrow">Property</p>
               <h2>Listing facts</h2>
             </div>
+
             <div class="form-grid">
               <label class="field">
                 <span>Listing title</span>
@@ -124,6 +124,7 @@
               <p class="eyebrow">Direction</p>
               <h2>Creative intent</h2>
             </div>
+
             <div class="form-grid">
               <label class="field field-wide">
                 <span>Buyer profile</span>
@@ -173,6 +174,7 @@
               <p class="eyebrow">Coverage</p>
               <h2>Rooms and assets</h2>
             </div>
+
             <div class="room-panel">
               <div class="room-panel-head">
                 <span>Room sequence</span>
@@ -226,7 +228,7 @@
               Generate Campaign Packet
             </button>
             <p class="microcopy" id="formMessage">
-              Ethan will return the creative direction, output templates, publish
+              Ethan will return the edit direction, delivery templates, publish
               pack, and review notes.
             </p>
           </div>
@@ -235,16 +237,20 @@
 
       <section class="workspace-panel reveal">
         <div class="workspace-top">
-          <div class="command-surface">
-            <span class="eyebrow">Run request</span>
-            <p id="promptPreview"></p>
+          <div class="workspace-hero">
+            <div class="workspace-project">
+              <p class="eyebrow">Current run</p>
+              <h2 id="summaryListingTitle">Belmont House</h2>
+              <p id="summaryListingMeta" class="workspace-subtitle"></p>
+            </div>
+
+            <div class="command-surface">
+              <span class="workspace-label">Run request</span>
+              <p id="promptPreview"></p>
+            </div>
           </div>
+
           <div class="summary-tiles">
-            <article class="summary-tile">
-              <span class="workspace-label">Listing</span>
-              <strong id="summaryListingTitle">-</strong>
-              <p id="summaryListingMeta">-</p>
-            </article>
             <article class="summary-tile">
               <span class="workspace-label">Coverage</span>
               <strong id="summaryCoverageTitle">-</strong>
@@ -270,10 +276,10 @@
 
         <div id="emptyState" class="empty-state">
           <p class="eyebrow">Nothing generated yet</p>
-          <h2>Load the sample or submit a brief to see Ethan compose the packet.</h2>
+          <h2>Load the sample or submit a brief to see Ethan assemble the run.</h2>
           <p>
-            The redesigned studio keeps the command preview, listing summary,
-            outputs, and review gates in one readable workspace.
+            The workspace stays centered on one question: what is Ethan making,
+            and what does a human still need to approve?
           </p>
         </div>
 
@@ -283,6 +289,7 @@
               <p class="eyebrow">Overview</p>
               <h2 id="creativeHeadline">Campaign direction</h2>
             </div>
+
             <div class="overview-grid">
               <article class="spotlight-card">
                 <span class="workspace-label">Creative direction</span>
@@ -375,11 +382,13 @@
           <h2>Current brief</h2>
           <ul class="clean-list stacked-list" id="inspectorFacts"></ul>
         </article>
+
         <article class="inspector-card">
-          <p class="eyebrow">Delivery</p>
-          <h2>Run includes</h2>
+          <p class="eyebrow">Run includes</p>
+          <h2>Delivery checklist</h2>
           <ul class="clean-list stacked-list" id="outputChecklist"></ul>
         </article>
+
         <article class="inspector-card">
           <p class="eyebrow">Human gate</p>
           <h2>Approve before publish</h2>
@@ -387,7 +396,7 @@
             <li>Confirm price and factual claims</li>
             <li>Pick the final title and thumbnail</li>
             <li>Approve CTA wording for the agent</li>
-            <li>Catch any luxury-market nuance Ethan should not infer</li>
+            <li>Catch any market nuance Ethan should not infer</li>
           </ul>
         </article>
       </aside>
