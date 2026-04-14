@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ethan AI Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/app.css" />
+    <script defer src="/static/app.js"></script>
+  </head>
+  <body data-page="studio">
+    <div class="grain"></div>
+    <main class="studio-shell shell">
+      <header class="studio-topbar">
+        <a href="/" class="brand">
+          <span class="brand-mark">E</span>
+          <span class="brand-copy">
+            <strong>Ethan AI</strong>
+            <small>template-driven campaign builder</small>
+          </span>
+        </a>
+        <div class="studio-actions">
+          <button type="button" class="button secondary-button button-reset" id="sampleButton">
+            Load Sample
+          </button>
+          <a href="/" class="button ghost-button">Back To Landing</a>
+        </div>
+      </header>
+
+      <section class="studio-grid">
+        <aside class="intake-panel">
+          <div class="panel-header">
+            <p class="eyebrow">Input brief</p>
+            <h1>Build the Ethan packet.</h1>
+            <p>
+              Define the listing, coverage, voice, and room sequence. Ethan
+              returns the edit plan, titles, delivery targets, and review notes.
+            </p>
+          </div>
+
+          <form id="plannerForm" class="planner-form">
+            <div class="field-grid">
+              <label>
+                <span>Listing title</span>
+                <input name="listing_title" placeholder="Belmont House" required />
+              </label>
+              <label>
+                <span>City</span>
+                <input name="city" placeholder="San Mateo" required />
+              </label>
+              <label>
+                <span>Neighborhood</span>
+                <input name="neighborhood" placeholder="Baywood" required />
+              </label>
+              <label>
+                <span>Price (millions)</span>
+                <input name="price_millions" type="number" min="0.1" step="0.1" value="3.6" required />
+              </label>
+              <label>
+                <span>Beds</span>
+                <input name="beds" type="number" min="1" value="4" required />
+              </label>
+              <label>
+                <span>Baths</span>
+                <input name="baths" type="number" min="1" step="0.5" value="3.5" required />
+              </label>
+              <label>
+                <span>Square feet</span>
+                <input name="sqft" type="number" min="500" value="3180" required />
+              </label>
+              <label>
+                <span>Agent name</span>
+                <input name="agent_name" placeholder="Olivia Chen" required />
+              </label>
+            </div>
+
+            <div class="field-grid">
+              <label class="wide">
+                <span>Buyer profile</span>
+                <input
+                  name="buyer_profile"
+                  placeholder="design-conscious family relocating from SF"
+                  required
+                />
+              </label>
+              <label class="wide">
+                <span>Hero feature</span>
+                <input
+                  name="hero_feature"
+                  placeholder="double-height living room"
+                  required
+                />
+              </label>
+              <label class="wide">
+                <span>CTA</span>
+                <input
+                  name="cta"
+                  placeholder="Book a private showing with Olivia Chen"
+                  required
+                />
+              </label>
+            </div>
+
+            <div class="field-grid">
+              <label>
+                <span>Brand voice</span>
+                <select name="brand_voice">
+                  <option value="luxury">Luxury restraint</option>
+                  <option value="warm">Warm editorial</option>
+                  <option value="assertive">Operator sharp</option>
+                </select>
+              </label>
+              <label>
+                <span>Hook style</span>
+                <select name="hook_style">
+                  <option value="cinematic">Cinematic reveal</option>
+                  <option value="numbers">Numbers first</option>
+                  <option value="lifestyle">Lifestyle frame</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="room-panel">
+              <div class="room-panel-head">
+                <span>Room sequence</span>
+                <small>Pick the scenes Ethan should treat as the spine of the cut.</small>
+              </div>
+              <div class="room-grid">
+                <label><input type="checkbox" name="room_sequence" value="arrival" checked />Arrival</label>
+                <label><input type="checkbox" name="room_sequence" value="living room" checked />Living room</label>
+                <label><input type="checkbox" name="room_sequence" value="kitchen" checked />Kitchen</label>
+                <label><input type="checkbox" name="room_sequence" value="primary suite" checked />Primary suite</label>
+                <label><input type="checkbox" name="room_sequence" value="backyard" />Backyard</label>
+                <label><input type="checkbox" name="room_sequence" value="home office" />Home office</label>
+                <label><input type="checkbox" name="room_sequence" value="pool" />Pool</label>
+                <label><input type="checkbox" name="room_sequence" value="neighborhood" />Neighborhood</label>
+              </div>
+            </div>
+
+            <div class="asset-grid">
+              <label>
+                <span>Footage clips</span>
+                <input name="footage_clips" type="number" min="1" value="18" required />
+              </label>
+              <label>
+                <span>Listing photos</span>
+                <input name="listing_photos" type="number" min="1" value="24" required />
+              </label>
+              <label class="toggle">
+                <input type="checkbox" name="has_floorplan" checked />
+                <span>Floorplan included</span>
+              </label>
+              <label class="toggle">
+                <input type="checkbox" name="has_voice_notes" checked />
+                <span>Voice notes included</span>
+              </label>
+              <label class="toggle">
+                <input type="checkbox" name="has_drone" checked />
+                <span>Drone footage</span>
+              </label>
+              <label class="toggle">
+                <input type="checkbox" name="has_neighborhood_broll" checked />
+                <span>Neighborhood b-roll</span>
+              </label>
+            </div>
+
+            <button class="button primary-button submit-button" type="submit" id="submitButton">
+              Generate Ethan Plan
+            </button>
+            <p class="microcopy" id="formMessage">
+              Ethan packages the edit plan, title pack, subtitle strategy, and export targets.
+            </p>
+          </form>
+        </aside>
+
+        <section class="result-panel">
+          <div class="result-intro">
+            <p class="eyebrow">Output</p>
+            <h2>Campaign packet</h2>
+            <p>
+              The first Ethan version is a premium planning layer: enough logic
+              to define the cut, package the campaign, and expose the next real
+              engineering edges.
+            </p>
+          </div>
+
+          <div class="template-strip" id="templateStrip"></div>
+
+          <div id="emptyState" class="empty-state">
+            <h3>Nothing generated yet.</h3>
+            <p>Load the sample or submit a listing brief to see Ethan compose the packet.</p>
+          </div>
+
+          <div class="results-stack hidden" id="resultsStack">
+            <section class="result-card">
+              <div class="result-card-head">
+                <p class="eyebrow">Creative direction</p>
+                <h3 id="creativeHeadline">Campaign direction</h3>
+              </div>
+              <p id="brandLine"></p>
+              <p id="operatorBrief" class="operator-brief"></p>
+              <div class="token-row" id="paletteTokens"></div>
+              <ul class="clean-list" id="motionNotes"></ul>
+            </section>
+
+            <section class="result-card">
+              <div class="result-card-head">
+                <p class="eyebrow">Workflow</p>
+                <h3>Operator flow</h3>
+              </div>
+              <div class="workflow-list" id="workflowList"></div>
+            </section>
+
+            <section class="result-card">
+              <div class="result-card-head">
+                <p class="eyebrow">Templates</p>
+                <h3>Output cuts</h3>
+              </div>
+              <div class="template-output-list" id="templateOutputs"></div>
+            </section>
+
+            <section class="result-card">
+              <div class="result-card-head">
+                <p class="eyebrow">Publish pack</p>
+                <h3>Titles, chapters, exports</h3>
+              </div>
+              <div class="publish-grid">
+                <div>
+                  <h4>Title candidates</h4>
+                  <ul class="clean-list" id="titleCandidates"></ul>
+                </div>
+                <div>
+                  <h4>Thumbnail copy</h4>
+                  <ul class="clean-list" id="thumbnailOptions"></ul>
+                </div>
+                <div>
+                  <h4>Chapter suggestions</h4>
+                  <ul class="clean-list" id="chapterSuggestions"></ul>
+                </div>
+                <div>
+                  <h4>Export targets</h4>
+                  <ul class="clean-list" id="exportTargets"></ul>
+                </div>
+              </div>
+              <div class="description-card">
+                <h4>Description</h4>
+                <p id="descriptionText"></p>
+              </div>
+              <div class="subtitle-card">
+                <h4>Subtitle pack</h4>
+                <p id="subtitlePack"></p>
+              </div>
+            </section>
+
+            <section class="result-card">
+              <div class="result-card-head">
+                <p class="eyebrow">Review notes</p>
+                <h3>Human touchpoints</h3>
+              </div>
+              <ul class="clean-list" id="reviewNotes"></ul>
+            </section>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
