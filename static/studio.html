@@ -4,83 +4,128 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ethan AI Studio</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%238f2f3f'/%3E%3Ctext x='32' y='41' font-size='30' text-anchor='middle' fill='white' font-family='Georgia, serif'%3EE%3C/text%3E%3C/svg%3E"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Spline+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/static/app.css" />
     <script defer src="/static/app.js"></script>
   </head>
   <body data-page="studio">
-    <div class="grain"></div>
-    <main class="studio-shell shell">
-      <header class="studio-topbar">
-        <a href="/" class="brand">
-          <span class="brand-mark">E</span>
-          <span class="brand-copy">
-            <strong>Ethan AI</strong>
-            <small>template-driven campaign builder</small>
-          </span>
-        </a>
-        <div class="studio-actions">
-          <button type="button" class="button secondary-button button-reset" id="sampleButton">
-            Load Sample
-          </button>
-          <a href="/" class="button ghost-button">Back To Landing</a>
+    <div class="page-glow page-glow-a"></div>
+    <div class="page-glow page-glow-b"></div>
+
+    <header class="site-header shell reveal">
+      <a class="brand" href="/">
+        <span class="brand-mark">E</span>
+        <span class="brand-copy">
+          <strong>Ethan AI</strong>
+          <small>studio</small>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="#section-overview">Overview</a>
+        <a href="#section-outputs">Outputs</a>
+        <a href="#section-review">Review</a>
+      </nav>
+      <div class="site-actions">
+        <button type="button" class="button button-secondary button-reset" id="sampleButton">
+          Load Sample
+        </button>
+        <a class="button button-ghost" href="/">Landing</a>
+      </div>
+    </header>
+
+    <main class="studio-layout shell">
+      <aside class="studio-sidebar reveal">
+        <div class="sidebar-intro">
+          <p class="eyebrow">Input brief</p>
+          <h1>Direct Ethan with one crisp listing brief.</h1>
+          <p>
+            The form is grouped by what the operator needs to know: property
+            facts, creative intent, room sequence, and asset coverage.
+          </p>
         </div>
-      </header>
 
-      <section class="studio-grid">
-        <aside class="intake-panel">
-          <div class="panel-header">
-            <p class="eyebrow">Input brief</p>
-            <h1>Build the Ethan packet.</h1>
-            <p>
-              Define the listing, coverage, voice, and room sequence. Ethan
-              returns the edit plan, titles, delivery targets, and review notes.
-            </p>
-          </div>
+        <div class="sidebar-steps">
+          <article class="step-card">
+            <span>01</span>
+            <div>
+              <strong>Property</strong>
+              <p>Facts and local context</p>
+            </div>
+          </article>
+          <article class="step-card">
+            <span>02</span>
+            <div>
+              <strong>Direction</strong>
+              <p>Hero feature and buyer fit</p>
+            </div>
+          </article>
+          <article class="step-card">
+            <span>03</span>
+            <div>
+              <strong>Coverage</strong>
+              <p>Rooms and available assets</p>
+            </div>
+          </article>
+        </div>
 
-          <form id="plannerForm" class="planner-form">
-            <div class="field-grid">
-              <label>
+        <form id="plannerForm" class="planner-form">
+          <section class="form-section">
+            <div class="form-section-head">
+              <p class="eyebrow">Property</p>
+              <h2>Listing facts</h2>
+            </div>
+            <div class="form-grid">
+              <label class="field">
                 <span>Listing title</span>
                 <input name="listing_title" placeholder="Belmont House" required />
               </label>
-              <label>
+              <label class="field">
                 <span>City</span>
                 <input name="city" placeholder="San Mateo" required />
               </label>
-              <label>
+              <label class="field">
                 <span>Neighborhood</span>
                 <input name="neighborhood" placeholder="Baywood" required />
               </label>
-              <label>
+              <label class="field">
                 <span>Price (millions)</span>
                 <input name="price_millions" type="number" min="0.1" step="0.1" value="3.6" required />
               </label>
-              <label>
+              <label class="field">
                 <span>Beds</span>
                 <input name="beds" type="number" min="1" value="4" required />
               </label>
-              <label>
+              <label class="field">
                 <span>Baths</span>
                 <input name="baths" type="number" min="1" step="0.5" value="3.5" required />
               </label>
-              <label>
+              <label class="field">
                 <span>Square feet</span>
                 <input name="sqft" type="number" min="500" value="3180" required />
               </label>
-              <label>
+              <label class="field">
                 <span>Agent name</span>
                 <input name="agent_name" placeholder="Olivia Chen" required />
               </label>
             </div>
+          </section>
 
-            <div class="field-grid">
-              <label class="wide">
+          <section class="form-section">
+            <div class="form-section-head">
+              <p class="eyebrow">Direction</p>
+              <h2>Creative intent</h2>
+            </div>
+            <div class="form-grid">
+              <label class="field field-wide">
                 <span>Buyer profile</span>
                 <input
                   name="buyer_profile"
@@ -88,7 +133,7 @@
                   required
                 />
               </label>
-              <label class="wide">
+              <label class="field field-wide">
                 <span>Hero feature</span>
                 <input
                   name="hero_feature"
@@ -96,7 +141,7 @@
                   required
                 />
               </label>
-              <label class="wide">
+              <label class="field field-wide">
                 <span>CTA</span>
                 <input
                   name="cta"
@@ -104,10 +149,7 @@
                   required
                 />
               </label>
-            </div>
-
-            <div class="field-grid">
-              <label>
+              <label class="field">
                 <span>Brand voice</span>
                 <select name="brand_voice">
                   <option value="luxury">Luxury restraint</option>
@@ -115,7 +157,7 @@
                   <option value="assertive">Operator sharp</option>
                 </select>
               </label>
-              <label>
+              <label class="field">
                 <span>Hook style</span>
                 <select name="hook_style">
                   <option value="cinematic">Cinematic reveal</option>
@@ -124,11 +166,17 @@
                 </select>
               </label>
             </div>
+          </section>
 
+          <section class="form-section">
+            <div class="form-section-head">
+              <p class="eyebrow">Coverage</p>
+              <h2>Rooms and assets</h2>
+            </div>
             <div class="room-panel">
               <div class="room-panel-head">
                 <span>Room sequence</span>
-                <small>Pick the scenes Ethan should treat as the spine of the cut.</small>
+                <small>Pick the scenes Ethan should use as the narrative spine.</small>
               </div>
               <div class="room-grid">
                 <label><input type="checkbox" name="room_sequence" value="arrival" checked />Arrival</label>
@@ -142,15 +190,18 @@
               </div>
             </div>
 
-            <div class="asset-grid">
-              <label>
+            <div class="form-grid">
+              <label class="field">
                 <span>Footage clips</span>
                 <input name="footage_clips" type="number" min="1" value="18" required />
               </label>
-              <label>
+              <label class="field">
                 <span>Listing photos</span>
                 <input name="listing_photos" type="number" min="1" value="24" required />
               </label>
+            </div>
+
+            <div class="toggle-grid">
               <label class="toggle">
                 <input type="checkbox" name="has_floorplan" checked />
                 <span>Floorplan included</span>
@@ -168,105 +219,178 @@
                 <span>Neighborhood b-roll</span>
               </label>
             </div>
+          </section>
 
-            <button class="button primary-button submit-button" type="submit" id="submitButton">
-              Generate Ethan Plan
+          <div class="submit-panel">
+            <button class="button button-primary submit-button" type="submit" id="submitButton">
+              Generate Campaign Packet
             </button>
             <p class="microcopy" id="formMessage">
-              Ethan packages the edit plan, title pack, subtitle strategy, and export targets.
-            </p>
-          </form>
-        </aside>
-
-        <section class="result-panel">
-          <div class="result-intro">
-            <p class="eyebrow">Output</p>
-            <h2>Campaign packet</h2>
-            <p>
-              The first Ethan version is a premium planning layer: enough logic
-              to define the cut, package the campaign, and expose the next real
-              engineering edges.
+              Ethan will return the creative direction, output templates, publish
+              pack, and review notes.
             </p>
           </div>
+        </form>
+      </aside>
 
-          <div class="template-strip" id="templateStrip"></div>
-
-          <div id="emptyState" class="empty-state">
-            <h3>Nothing generated yet.</h3>
-            <p>Load the sample or submit a listing brief to see Ethan compose the packet.</p>
+      <section class="workspace-panel reveal">
+        <div class="workspace-top">
+          <div class="command-surface">
+            <span class="eyebrow">Run request</span>
+            <p id="promptPreview"></p>
           </div>
+          <div class="summary-tiles">
+            <article class="summary-tile">
+              <span class="workspace-label">Listing</span>
+              <strong id="summaryListingTitle">-</strong>
+              <p id="summaryListingMeta">-</p>
+            </article>
+            <article class="summary-tile">
+              <span class="workspace-label">Coverage</span>
+              <strong id="summaryCoverageTitle">-</strong>
+              <p id="summaryCoverageMeta">-</p>
+            </article>
+            <article class="summary-tile">
+              <span class="workspace-label">Delivery</span>
+              <strong id="summaryDeliveryTitle">-</strong>
+              <p id="summaryDeliveryMeta">-</p>
+            </article>
+          </div>
+        </div>
 
-          <div class="results-stack hidden" id="resultsStack">
-            <section class="result-card">
-              <div class="result-card-head">
-                <p class="eyebrow">Creative direction</p>
-                <h3 id="creativeHeadline">Campaign direction</h3>
-              </div>
-              <p id="brandLine"></p>
-              <p id="operatorBrief" class="operator-brief"></p>
-              <div class="token-row" id="paletteTokens"></div>
-              <ul class="clean-list" id="motionNotes"></ul>
-            </section>
+        <div class="jump-nav">
+          <a href="#section-overview">Overview</a>
+          <a href="#section-workflow">Workflow</a>
+          <a href="#section-outputs">Outputs</a>
+          <a href="#section-publish">Publish pack</a>
+          <a href="#section-review">Review</a>
+        </div>
 
-            <section class="result-card">
-              <div class="result-card-head">
-                <p class="eyebrow">Workflow</p>
-                <h3>Operator flow</h3>
-              </div>
-              <div class="workflow-list" id="workflowList"></div>
-            </section>
+        <div class="template-strip" id="templateStrip"></div>
 
-            <section class="result-card">
-              <div class="result-card-head">
-                <p class="eyebrow">Templates</p>
-                <h3>Output cuts</h3>
-              </div>
-              <div class="template-output-list" id="templateOutputs"></div>
-            </section>
+        <div id="emptyState" class="empty-state">
+          <p class="eyebrow">Nothing generated yet</p>
+          <h2>Load the sample or submit a brief to see Ethan compose the packet.</h2>
+          <p>
+            The redesigned studio keeps the command preview, listing summary,
+            outputs, and review gates in one readable workspace.
+          </p>
+        </div>
 
-            <section class="result-card">
-              <div class="result-card-head">
-                <p class="eyebrow">Publish pack</p>
-                <h3>Titles, chapters, exports</h3>
-              </div>
-              <div class="publish-grid">
-                <div>
-                  <h4>Title candidates</h4>
-                  <ul class="clean-list" id="titleCandidates"></ul>
-                </div>
-                <div>
-                  <h4>Thumbnail copy</h4>
-                  <ul class="clean-list" id="thumbnailOptions"></ul>
-                </div>
-                <div>
-                  <h4>Chapter suggestions</h4>
-                  <ul class="clean-list" id="chapterSuggestions"></ul>
-                </div>
-                <div>
-                  <h4>Export targets</h4>
-                  <ul class="clean-list" id="exportTargets"></ul>
-                </div>
-              </div>
-              <div class="description-card">
-                <h4>Description</h4>
+        <div class="results-stack hidden" id="resultsStack">
+          <section class="result-panel" id="section-overview">
+            <div class="section-heading compact">
+              <p class="eyebrow">Overview</p>
+              <h2 id="creativeHeadline">Campaign direction</h2>
+            </div>
+            <div class="overview-grid">
+              <article class="spotlight-card">
+                <span class="workspace-label">Creative direction</span>
+                <p id="brandLine" class="brand-line"></p>
+                <p id="operatorBrief" class="operator-brief"></p>
+                <div class="token-row" id="paletteTokens"></div>
+              </article>
+              <article class="utility-card">
+                <span class="workspace-label">Run snapshot</span>
+                <ul class="clean-list stacked-list" id="runSnapshot"></ul>
+              </article>
+              <article class="utility-card">
+                <span class="workspace-label">Motion system</span>
+                <ul class="clean-list stacked-list" id="motionNotes"></ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="result-panel" id="section-workflow">
+            <div class="section-heading compact">
+              <p class="eyebrow">Workflow</p>
+              <h2>How Ethan will handle this run</h2>
+            </div>
+            <div class="workflow-rail" id="workflowList"></div>
+          </section>
+
+          <section class="result-panel" id="section-outputs">
+            <div class="section-heading compact">
+              <p class="eyebrow">Outputs</p>
+              <h2>Template cuts</h2>
+            </div>
+            <div class="template-output-list" id="templateOutputs"></div>
+          </section>
+
+          <section class="result-panel" id="section-publish">
+            <div class="section-heading compact">
+              <p class="eyebrow">Publish pack</p>
+              <h2>Titles, chapters, exports, subtitles</h2>
+            </div>
+            <div class="publish-grid">
+              <article class="utility-card">
+                <span class="workspace-label">Title candidates</span>
+                <ul class="clean-list stacked-list" id="titleCandidates"></ul>
+              </article>
+              <article class="utility-card">
+                <span class="workspace-label">Thumbnail copy</span>
+                <ul class="clean-list stacked-list" id="thumbnailOptions"></ul>
+              </article>
+              <article class="utility-card">
+                <span class="workspace-label">Chapter suggestions</span>
+                <ul class="clean-list stacked-list" id="chapterSuggestions"></ul>
+              </article>
+              <article class="utility-card">
+                <span class="workspace-label">Export targets</span>
+                <ul class="clean-list stacked-list" id="exportTargets"></ul>
+              </article>
+              <article class="description-card">
+                <span class="workspace-label">Description</span>
                 <p id="descriptionText"></p>
-              </div>
-              <div class="subtitle-card">
-                <h4>Subtitle pack</h4>
+              </article>
+              <article class="description-card">
+                <span class="workspace-label">Subtitle pack</span>
                 <p id="subtitlePack"></p>
-              </div>
-            </section>
+              </article>
+            </div>
+          </section>
 
-            <section class="result-card">
-              <div class="result-card-head">
-                <p class="eyebrow">Review notes</p>
-                <h3>Human touchpoints</h3>
-              </div>
-              <ul class="clean-list" id="reviewNotes"></ul>
-            </section>
-          </div>
-        </section>
+          <section class="result-panel" id="section-review">
+            <div class="section-heading compact">
+              <p class="eyebrow">Review</p>
+              <h2>Human touchpoints and final checks</h2>
+            </div>
+            <div class="review-grid">
+              <article class="utility-card">
+                <span class="workspace-label">Review notes</span>
+                <ul class="clean-list stacked-list" id="reviewNotes"></ul>
+              </article>
+              <article class="utility-card">
+                <span class="workspace-label">Approval checklist</span>
+                <ul class="clean-list stacked-list" id="approvalChecklist"></ul>
+              </article>
+            </div>
+          </section>
+        </div>
       </section>
+
+      <aside class="inspector-panel reveal">
+        <article class="inspector-card">
+          <p class="eyebrow">Inspector</p>
+          <h2>Current brief</h2>
+          <ul class="clean-list stacked-list" id="inspectorFacts"></ul>
+        </article>
+        <article class="inspector-card">
+          <p class="eyebrow">Delivery</p>
+          <h2>Run includes</h2>
+          <ul class="clean-list stacked-list" id="outputChecklist"></ul>
+        </article>
+        <article class="inspector-card">
+          <p class="eyebrow">Human gate</p>
+          <h2>Approve before publish</h2>
+          <ul class="clean-list stacked-list">
+            <li>Confirm price and factual claims</li>
+            <li>Pick the final title and thumbnail</li>
+            <li>Approve CTA wording for the agent</li>
+            <li>Catch any luxury-market nuance Ethan should not infer</li>
+          </ul>
+        </article>
+      </aside>
     </main>
   </body>
 </html>

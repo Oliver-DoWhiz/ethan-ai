@@ -6,197 +6,267 @@
     <title>Ethan AI</title>
     <meta
       name="description"
-      content="Ethan AI is a premium video operator for agent-native teams. It turns raw real-estate footage into a publish-ready campaign system."
+      content="Ethan AI is a premium real-estate video operator. It turns listing footage into a clearer campaign plan, review flow, and publish-ready packet."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%238f2f3f'/%3E%3Ctext x='32' y='41' font-size='30' text-anchor='middle' fill='white' font-family='Georgia, serif'%3EE%3C/text%3E%3C/svg%3E"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Spline+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/static/app.css" />
     <script defer src="/static/app.js"></script>
   </head>
   <body data-page="landing">
-    <div class="grain"></div>
-    <div class="glow glow-a"></div>
-    <div class="glow glow-b"></div>
-    <header class="topbar shell">
+    <div class="page-glow page-glow-a"></div>
+    <div class="page-glow page-glow-b"></div>
+
+    <header class="site-header shell reveal">
       <a class="brand" href="/">
         <span class="brand-mark">E</span>
         <span class="brand-copy">
           <strong>Ethan AI</strong>
-          <small>video operator for agent-native teams</small>
+          <small>operator-grade video system</small>
         </span>
       </a>
-      <nav class="topnav">
-        <a href="#system">System</a>
-        <a href="#templates">Templates</a>
-        <a href="/studio" class="button ghost-button">Open Studio</a>
+      <nav class="site-nav">
+        <a href="#workflow">Workflow</a>
+        <a href="#outputs">Outputs</a>
+        <a href="#review">Review</a>
       </nav>
+      <div class="site-actions">
+        <a class="button button-ghost" href="#why-clear">Why it is clearer</a>
+        <a class="button button-primary" href="/studio">Open Studio</a>
+      </div>
     </header>
 
-    <main>
+    <main class="landing-main">
       <section class="hero shell">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Template-first real-estate video production</p>
-          <h1>Turn open-house footage into a publish-ready campaign.</h1>
-          <p class="lede">
-            Ethan is not a vague “AI editor.” It is a premium production system:
-            ingest the footage, build the edit plan, package the overlays,
-            titles, captions, and CTA, then deliver a cleaner path to local
-            video ops at scale.
+          <p class="eyebrow">AI video operator for premium listings</p>
+          <h1>Tell Ethan what the home needs. Review one clear campaign packet.</h1>
+          <p class="hero-lede">
+            Ethan now behaves more like a focused editor workspace and less like
+            a vague AI landing page. One command surface, one structured brief,
+            one publish-ready plan.
           </p>
           <div class="hero-actions">
-            <a class="button primary-button" href="/studio">Build A Campaign</a>
-            <a class="button secondary-button" href="#system">See The System</a>
+            <a class="button button-primary" href="/studio">Launch Ethan</a>
+            <a class="button button-secondary" href="#workflow">See workflow</a>
           </div>
-          <div class="hero-stats">
-            <div>
-              <strong>1</strong>
-              <span>master walkthrough</span>
-            </div>
-            <div>
-              <strong>3</strong>
-              <span>template outputs</span>
-            </div>
-            <div>
-              <strong>0</strong>
-              <span>frontend build steps</span>
-            </div>
+          <div class="hero-proof">
+            <article class="proof-card">
+              <strong>1 clear next step</strong>
+              <span>Every screen points toward the run, not abstract marketing copy.</span>
+            </article>
+            <article class="proof-card">
+              <strong>3 output formats</strong>
+              <span>Walkthrough, short, and listing explainer stay inside one system.</span>
+            </article>
+            <article class="proof-card">
+              <strong>Review stays human</strong>
+              <span>Facts, tone, and CTA approval remain visible and deliberate.</span>
+            </article>
           </div>
         </div>
 
-        <aside class="hero-panel reveal">
-          <div class="storyboard-header">
-            <span class="eyebrow">Campaign packet</span>
-            <span class="badge">MVP ready</span>
-          </div>
-          <h2>Open House Masterpiece</h2>
-          <p class="panel-note">
-            A template-driven arc for agents who need elegance, speed, and
-            factual control more than gimmicks.
-          </p>
-          <div class="storyboard-list">
-            <article class="storyboard-item">
-              <span>00</span>
-              <div>
-                <strong>Cold open</strong>
-                <p>Hero feature before the numbers.</p>
+        <div class="hero-workspace reveal">
+          <div class="workspace-window">
+            <div class="window-top">
+              <div class="window-dots">
+                <span></span>
+                <span></span>
+                <span></span>
               </div>
-            </article>
-            <article class="storyboard-item">
-              <span>01</span>
-              <div>
-                <strong>Neighborhood promise</strong>
-                <p>Context card, position, buyer fit.</p>
-              </div>
-            </article>
-            <article class="storyboard-item">
-              <span>02</span>
-              <div>
-                <strong>Room argument</strong>
-                <p>Each scene earns its place in the sale.</p>
-              </div>
-            </article>
-            <article class="storyboard-item">
-              <span>03</span>
-              <div>
-                <strong>Package and CTA</strong>
-                <p>Titles, captions, thumbnails, export targets.</p>
-              </div>
-            </article>
-          </div>
-        </aside>
-      </section>
+              <p>Command-first campaign workspace</p>
+              <span class="badge">MVP v2</span>
+            </div>
 
-      <section class="shell manifesto-grid">
-        <article class="paper-card reveal">
-          <p class="eyebrow">Product thesis</p>
-          <h2>Ethan’s real moat is a disciplined template engine.</h2>
-          <p>
-            The first version is deliberately narrow: a real-estate video
-            production workflow that can ingest raw footage, organize the cut,
-            and output platform-ready campaign assets with premium taste.
-          </p>
-        </article>
-        <article class="dark-card reveal">
-          <p class="eyebrow">Why now</p>
-          <ul class="clean-list">
-            <li>Real-estate teams already generate raw footage faster than they can edit it.</li>
-            <li>Campaign packaging matters as much as the timeline itself.</li>
-            <li>Template discipline beats fake “infinite creativity” for repeatable ops.</li>
-            <li>A local-first Rust MVP makes the system easy to review and evolve.</li>
-          </ul>
-        </article>
-      </section>
+            <div class="command-box">
+              <span class="eyebrow">Ask Ethan</span>
+              <p>
+                Build a flagship walkthrough for Belmont House. Lead with the
+                double-height living room, keep the tone restrained, package one
+                vertical hero cut, and make the CTA feel natural for private
+                showings.
+              </p>
+            </div>
 
-      <section id="system" class="shell section">
-        <div class="section-heading reveal">
-          <p class="eyebrow">System</p>
-          <h2>Ingest, understand, plan, review, export.</h2>
-        </div>
-        <div class="system-grid">
-          <article class="info-card reveal">
-            <h3>Ingest</h3>
-            <p>
-              Footage counts, listing photos, floorplan coverage, voice notes,
-              and neighborhood b-roll become the operator brief.
-            </p>
-          </article>
-          <article class="info-card reveal">
-            <h3>Plan</h3>
-            <p>
-              Ethan creates the middle layer Logan asked for: a reusable edit
-              plan instead of a one-off output blob.
-            </p>
-          </article>
-          <article class="info-card reveal">
-            <h3>Package</h3>
-            <p>
-              The system generates titles, description, thumbnail copy,
-              chapters, subtitles, and delivery targets alongside the cut.
-            </p>
-          </article>
+            <div class="workspace-grid">
+              <article class="workspace-card">
+                <span class="workspace-label">Run summary</span>
+                <h2>Belmont House</h2>
+                <ul class="clean-list">
+                  <li>San Mateo / Baywood</li>
+                  <li>4 bed / 3.5 bath / 3,180 sq ft</li>
+                  <li>18 clips / 24 listing photos / drone included</li>
+                </ul>
+              </article>
+              <article class="workspace-card workspace-card-strong">
+                <span class="workspace-label">Timeline plan</span>
+                <div class="mini-timeline">
+                  <div>
+                    <strong>Open</strong>
+                    <p>Lead with the hero space before the numbers land.</p>
+                  </div>
+                  <div>
+                    <strong>Middle</strong>
+                    <p>Move room-by-room with one argument per space.</p>
+                  </div>
+                  <div>
+                    <strong>Close</strong>
+                    <p>Reframe price, buyer fit, and showing CTA.</p>
+                  </div>
+                </div>
+              </article>
+              <article class="workspace-card">
+                <span class="workspace-label">Publish pack</span>
+                <ul class="clean-list">
+                  <li>3 title candidates</li>
+                  <li>Thumbnail copy</li>
+                  <li>Chapter markers</li>
+                  <li>Export targets and subtitle style</li>
+                </ul>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="templates" class="shell section">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Templates</p>
-          <h2>Three formats. One coherent campaign system.</h2>
+      <section id="why-clear" class="section-block shell reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Why it is clearer</p>
+          <h2>The product now explains itself without making the user interpret the UI.</h2>
         </div>
-        <div class="template-grid">
-          <article class="template-card reveal">
-            <span class="template-index">01</span>
+        <div class="clarity-grid">
+          <article class="clarity-card">
+            <span class="card-index">01</span>
+            <h3>One dominant action</h3>
+            <p>
+              The product leads with a single job: run a campaign packet from a
+              listing brief. Secondary actions no longer compete with the main
+              path.
+            </p>
+          </article>
+          <article class="clarity-card">
+            <span class="card-index">02</span>
+            <h3>Scan-first hierarchy</h3>
+            <p>
+              Each area starts with what it is, why it matters, and what
+              appears next. The user can skim the interface and stay oriented.
+            </p>
+          </article>
+          <article class="clarity-card">
+            <span class="card-index">03</span>
+            <h3>Progressive disclosure</h3>
+            <p>
+              The brief, run summary, outputs, and review gates are grouped into
+              clean layers instead of one long undifferentiated wall.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="workflow" class="section-block shell reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Workflow</p>
+          <h2>A more product-like flow: brief, run, inspect, approve.</h2>
+        </div>
+        <div class="workflow-band">
+          <article class="workflow-stage">
+            <span class="stage-pill">01</span>
+            <h3>Brief the listing</h3>
+            <p>
+              Listing facts, hero feature, buyer fit, room sequence, and asset
+              counts stay together in one briefing rail.
+            </p>
+          </article>
+          <article class="workflow-stage">
+            <span class="stage-pill">02</span>
+            <h3>Review the operator run</h3>
+            <p>
+              Ethan turns the brief into a creative direction, stage-by-stage
+              workflow, output templates, and publishing decisions.
+            </p>
+          </article>
+          <article class="workflow-stage">
+            <span class="stage-pill">03</span>
+            <h3>Approve what matters</h3>
+            <p>
+              The human only needs to confirm the facts, title choice, and final
+              CTA instead of re-reading every generated sentence from scratch.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="outputs" class="section-block shell reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Outputs</p>
+          <h2>Every run produces a full campaign system, not a single generic cut.</h2>
+        </div>
+        <div class="template-cards">
+          <article class="template-card">
+            <span class="card-index">A</span>
             <h3>Open House Masterpiece</h3>
-            <p>Flagship 16:9 walkthrough with emotional pacing and factual restraint.</p>
+            <p>The flagship walkthrough with an editorial arc and restrained motion.</p>
           </article>
-          <article class="template-card reveal">
-            <span class="template-index">02</span>
+          <article class="template-card">
+            <span class="card-index">B</span>
             <h3>Hero Short</h3>
-            <p>9:16 cut for scroll-stopping impact around one unforgettable feature.</p>
+            <p>A vertical cut built around one unforgettable feature and a tight hook.</p>
           </article>
-          <article class="template-card reveal">
-            <span class="template-index">03</span>
+          <article class="template-card">
+            <span class="card-index">C</span>
             <h3>Listing Explainer</h3>
-            <p>Dense social/share asset for warm leads, DMs, and repost workflows.</p>
+            <p>A denser social asset that supports warm leads, reposts, and DMs.</p>
           </article>
         </div>
       </section>
 
-      <section class="shell section">
-        <div class="cta-card reveal">
+      <section id="review" class="section-block shell reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Review model</p>
+          <h2>The line between AI generation and human approval is now explicit.</h2>
+        </div>
+        <div class="boundary-grid">
+          <article class="boundary-card boundary-card-dark">
+            <h3>Ethan handles</h3>
+            <ul class="clean-list">
+              <li>Creative direction and pacing thesis</li>
+              <li>Shot plan per template</li>
+              <li>Title, thumbnail, subtitle, and export suggestions</li>
+              <li>Review flags based on missing assets or scene coverage</li>
+            </ul>
+          </article>
+          <article class="boundary-card">
+            <h3>Human approves</h3>
+            <ul class="clean-list">
+              <li>Listing facts and pricing language</li>
+              <li>Brand tone and title selection</li>
+              <li>Final CTA and publish decision</li>
+              <li>Any premium-market nuance Ethan should not guess</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block shell reveal">
+        <div class="cta-panel">
           <div>
-            <p class="eyebrow">Local MVP</p>
-            <h2>Open the Ethan studio and generate a full campaign packet.</h2>
+            <p class="eyebrow">Now live in the repo</p>
+            <h2>Open the redesigned studio and run the sample listing end-to-end.</h2>
             <p>
-              The MVP runs locally, includes the landing page, intake workflow,
-              edit-plan generator, and a premium deliverable view that feels
-              ready for the next engineering stage.
+              The MVP still runs locally in Rust, but the front-end now behaves
+              much more like a focused editor product with a clearer command
+              surface and review structure.
             </p>
           </div>
-          <a class="button primary-button" href="/studio">Launch Studio</a>
+          <a class="button button-primary" href="/studio">Open Ethan Studio</a>
         </div>
       </section>
     </main>
